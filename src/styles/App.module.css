@@ -1,0 +1,44 @@
+/* styles/App.module.css */
+.appContainer {
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    color: white;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+  }
+  
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navLinks a {
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .navLinks a:hover {
+    color: #6366f1;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #333;
+    font-size: 0.875rem;
+    margin-top: auto;
+  }
+  

@@ -1,0 +1,157 @@
+/* ===========================
+   Contact Page – Namespaced
+   =========================== */
+   :root {
+    /* If your site header is fixed, set its height here. If not, leave 0. */
+    --cp-nav-h: 0px;
+    --cp-bg: #1c1c1c;         /* page background (your theme) */
+    --cp-card: #212121;       /* card background */
+    --cp-text: #e0e0e0;       /* main text */
+    --cp-muted: #a9b0bd;      /* muted text */
+    --cp-accent: #4fa3f7;     /* links / accents */
+    --cp-ring: #2a2a2a;       /* subtle borders */
+    --cp-shadow: 0 4px 30px rgba(0,0,0,.5);
+  }
+  
+  /* PAGE WRAPPER */
+  .cp-page {
+    background: var(--cp-bg);
+    color: var(--cp-text);
+    min-height: calc(80vh - var(--cp-nav-h));
+    padding: clamp(20px, 3vw, 40px);
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  }
+  
+  /* HEADER */
+  .cp-hero {
+    text-align: center;
+    margin-bottom: clamp(16px, 4vh, 28px);
+  }
+  .cp-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-size: .75rem;
+    color: #cbd5e1;
+    opacity: .8;
+    margin-bottom: .3rem;
+  }
+  .cp-title {
+    font-size: clamp(20px, 2vw, 25px);
+    font-weight: 400;
+    letter-spacing: .3px;
+    color: #dce3ff;
+    text-shadow: 0 0 6px rgba(99,102,241,.35);
+  }
+  
+  /* GRID (Cards) */
+  .cp-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) 1fr;
+    gap: clamp(16px, 2.5vw, 28px);
+    align-items: stretch;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  /* Stack on mobile */
+  @media (max-width: 860px) {
+    .cp-grid { grid-template-columns: 1fr; }
+  }
+  
+  /* CARD */
+  .cp-card {
+    background: var(--cp-card);
+    border-radius: 14px;
+    box-shadow: var(--cp-shadow);
+    padding: clamp(14px, 2.2vw, 15px);
+    border: 1px solid var(--cp-ring);
+  }
+  
+  /* MEDIA */
+  .cp-media { margin: 0 0 .9rem; }
+  .cp-img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  
+  /* TYPOGRAPHY */
+  .cp-name {
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 700;
+    margin: .2rem 0 .35rem;
+    color: #e9ecff;
+  }
+  .cp-role {
+    color: #9aa3b2;
+    font-weight: 600;
+    margin: 0 0 .8rem;
+  }
+  .cp-text {
+    color: #e6e7eb;
+    line-height: 1.55;
+    margin: 0 0 .9rem;
+  }
+  .cp-lines { margin-top: .4rem; }
+  .cp-label { color: #cfd5e2; font-weight: 600; }
+  .cp-link { color: var(--cp-accent); text-decoration: none; }
+  .cp-link:hover { text-decoration: underline; }
+  
+  /* SOCIAL */
+  .cp-social { margin-top: 1rem; }
+  .cp-findme {
+    display: block;
+    font-size: .8rem;
+    color: var(--cp-muted);
+    margin-bottom: .5rem;
+    letter-spacing: .02em;
+  }
+  .cp-icons { display: flex; gap: .6rem; }
+  .cp-icon {
+    background: #2c2c2c;
+    color: #fff;
+    width: 36px; height: 36px;
+    display: grid; place-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--cp-ring);
+    transition: background .25s ease, transform .2s ease;
+  }
+  .cp-icon:hover { background: var(--cp-accent); transform: translateY(-1px); }
+  
+  /* MAP CARD */
+  .cp-mapCard { padding: clamp(10px, 1.6vw, 20px); }
+  .cp-mapWrap {
+    width: 100%;
+    height: clamp(550px, 48vh, 420px); /* tidy, responsive height */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--cp-shadow);
+  }
+  .cp-mapWrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  
+  /* FOOTER (page-local) */
+  .cp-footer {
+    max-width: 1100px;
+    margin: clamp(18px, 4vh, 28px) auto 0;
+    padding-top: clamp(14px, 2vh, 20px);
+    border-top: 1px solid var(--cp-ring);
+    text-align: center;
+    color: #cbd5e1;
+    opacity: .9;
+    display: grid;
+    gap: .35rem;
+  }
+  .cp-footer strong { letter-spacing: .12em; font-size: .78rem; }
+  .cp-footer span { font-size: .8rem; }
+  
+  /* Make sure Font Awesome icons render if you include them globally */
+  .fab, .fas { font-size: 1rem; }
+  

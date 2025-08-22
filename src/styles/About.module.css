@@ -1,0 +1,118 @@
+.aboutSection {
+  padding: 1rem 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.aboutTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6366f1;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.aboutText {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.subTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6366f1;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* My Expertise Section */
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.expertiseCard {
+  background-color: #1a1a1a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: white;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+  transition: transform 0.3s;
+}
+
+.expertiseCard:hover {
+  transform: translateY(-5px);
+}
+
+.expertiseIcon {
+  font-size: 2rem;
+  color: #ec4899; /* pink accent */
+  margin-bottom: 1rem;
+}
+
+.expertiseCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.expertiseCard p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .expertiseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .expertiseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* What I'm Doing Section */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.serviceCard {
+  background-color: #1a1a1a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+  transition: transform 0.3s;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
