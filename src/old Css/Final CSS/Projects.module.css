@@ -1,0 +1,210 @@
+/* .projectsSection {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Segoe UI", sans-serif;
+    color: #e5e7eb;
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    color: #6366f1;
+    text-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    background-color: #1f2937;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+  }
+  
+  .projectTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+    color: #9ca3af;
+    margin-bottom: 0.3rem;
+  }
+  
+  .category {
+    font-size: 1rem;
+    color: #fbbf24;
+    margin-bottom: 0.3rem;
+  }
+  
+  .tech {
+    font-size: 0.85rem;
+    color: #93c5fd;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  
+  .bullets {
+    list-style: none;
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    color: #d1d5db;
+  }
+  
+  .bullets li {
+    margin-bottom: 0.4rem;
+  }
+   */
+
+
+
+
+
+
+   /* ====== Base (kept your palette) ====== */
+.projectsSection {
+  padding: 1rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+  color: #e5e7eb;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #6366f1;             /* keep your purple */
+  text-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+}
+
+/* ========== Filters & Tags (NEW) ========== */
+.filters,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.filters { margin: 0.75rem 0 0.5rem; }
+
+.filterBtn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.30);  /* purple ring */
+  color: #e5e7eb;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.15);
+}
+.filterBtn:hover { background: rgba(255,255,255,0.10); transform: translateY(-1px); }
+.filterBtn[aria-pressed="true"] {
+  background: rgba(99, 102, 241, 0.18);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35) inset,
+              0 10px 16px rgba(99, 102, 241, 0.22);
+}
+
+.tags { margin-bottom: 0.75rem; }
+
+.tagChip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #dbe3ff;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+.tagChip:hover { background: rgba(255,255,255,0.10); transform: translateY(-1px); }
+.tagChipActive { background: rgba(99, 102, 241, 0.22); color: #ffffff; }
+
+/* ========== Cards (as you had) ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.card {
+  background-color: #1f2937; /* your card bg */
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a5b4fc;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-bottom: 0.3rem;
+}
+
+.category {
+  font-size: 1rem;
+  color: #fbbf24;
+  margin-bottom: 0.3rem;
+}
+
+.tech {
+  font-size: 0.85rem;
+  color: #93c5fd;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+}
+
+.description {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.bullets {
+  list-style: none;
+  padding-left: 1rem;
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+.bullets li { margin-bottom: 0.4rem; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .filterBtn, .tagChip { transition: none; }
+  .card, .card:hover { transform: none !important; }
+}

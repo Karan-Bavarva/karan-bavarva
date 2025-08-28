@@ -1,44 +1,154 @@
-/* styles/App.module.css */
-.appContainer {
-    font-family: sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #000;
-    color: white;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #111;
-    border-bottom: 1px solid #333;
-  }
-  
-  .brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .navLinks a {
-    margin-left: 1rem;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .navLinks a:hover {
-    color: #6366f1;
-  }
-  
-  .footer {
-    text-align: center;
-    padding: 1rem;
-    border-top: 1px solid #333;
-    font-size: 0.875rem;
-    margin-top: auto;
-  }
-  
+/* ===== Base Layout ===== */
+:global(html),
+:global(body),
+:global(#root) {
+  height: 100%;
+  margin: 0;
+}
+
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid #333;
+  color: #ccc;
+  background: #000;
+  font-size: 0.9rem;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: 0.75rem 1.5rem;
+}
+
+.brandWrap .brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Desktop links */
+.navLinks {
+  display: flex;
+  gap: 2rem;
+}
+.navLinks a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.navLinks a:hover {
+  color: #6366f1;
+}
+
+/* Hamburger hidden by default (desktop) */
+.menuBtn {
+  display: none;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.06);
+  color: #eaeaea;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+.menuBtn:hover { transform: scale(1.04); background: rgba(255,255,255,.1); }
+
+/* ===== Drawer (mobile) ===== */
+.drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(82vw, 320px);
+  height: 100dvh;
+  padding: 16px 14px;
+  background: linear-gradient(180deg, rgba(18,18,20,.95), rgba(12,12,14,.95));
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border-right: 1px solid rgba(99,102,241,.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+  transform: translateX(-105%);
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+  z-index: 1100;
+}
+.open.drawer { transform: translateX(0); }
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(99,102,241,.18);
+}
+.closeBtn {
+  inline-size: 36px; block-size: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+.closeBtn:hover { transform: rotate(90deg); background: rgba(255,255,255,.08); }
+
+.drawerLinks {
+  display: grid;
+  gap: 10px;
+  padding: 14px 6px 6px;
+}
+.drawerLink {
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #e7e9ee;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .2s ease, background .25s ease, border-color .25s ease;
+}
+.drawerLink:hover {
+  transform: translateX(4px);
+  color: #6366f1;
+}
+.drawerLinkActive {
+  color: #c7c9ff;
+  border-left: 3px solid #6366f1;
+  padding-left: 12px;
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  z-index: 1000;
+}
+.open.backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  /* hide desktop nav, show hamburger/drawer */
+  .navLinks { display: none; }
+  .menuBtn { display: inline-flex; align-items: center; justify-content: center; }
+  .drawer, .backdrop { display: block; }
+}

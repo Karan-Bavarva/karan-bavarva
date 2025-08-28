@@ -1,8 +1,10 @@
 /* .aboutSection {
-  padding: 4rem 3rem;    /* increased side spacing */
-  max-width: 1100px;
-  margin: 0 auto;
-} */
+    min-height: 69vh;
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #e0e0e0;
+  } */
 
   .aboutSection {
     padding: 4rem 2rem;

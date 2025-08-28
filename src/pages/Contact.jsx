@@ -305,6 +305,7 @@
 
 import React from "react";
 import "./Contact.css";
+
 import profileImage from "../assets/contact1.png"; // keep your image
 
 export default function Contact() {
@@ -343,10 +344,10 @@ export default function Contact() {
           <div className="cp-social">
             <span className="cp-findme">Find me</span>
             <nav className="cp-icons" aria-label="Social links">
-              <a className="cp-icon" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a className="cp-icon" href="https://github.com/Karan-Bavarva" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <i className="fab fa-github" />
               </a>
-              <a className="cp-icon" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a className="cp-icon" href="https://www.linkedin.com/in/karan-bavarva/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <i className="fab fa-linkedin" />
               </a>
               <a className="cp-icon" href="mailto:karanbavarva19@gmail.com" aria-label="Email">

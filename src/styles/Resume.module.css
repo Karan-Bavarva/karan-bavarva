@@ -1,4 +1,4 @@
-   .resumeContainer {
+   /* .resumeContainer {
     background: #151515;
     padding: 2rem 4rem;
     color: #fff;
@@ -146,4 +146,211 @@
     width: 0;
     transition: width 2s ease;
   }
+     */
+
+
+
+
+
+
+
+
+
+     .resumeContainer {
+      background: #151515;
+      padding: 2rem 4rem;
+      color: #fff;
+      text-align: center;
+    }
+    
+    .smallHeading {
+      color: #6366f1;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    .mainHeading {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .tabs button {
+      background: #1c1c1c;
+      color: #ccc;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 15px;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.05),
+                  0 8px 20px rgba(0,0,0,0.6);
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.4s ease;
+    }
+    
+    .tabs button:hover {
+      background: rgba(99, 102, 241, 0.15);
+      color: #6366f1;
+      box-shadow: inset 0 0 10px rgba(99,102,241,0.4),
+                  0 8px 20px rgba(0,0,0,0.6);
+    }
+    
+    .tabs button.active {
+      background: rgba(99, 102, 241, 0.25);
+      color: #6366f1;
+      box-shadow: inset 0 0 10px rgba(99,102,241,0.6),
+                  0 8px 25px rgba(0,0,0,0.7);
+    }
+    
+    /* ---------- Timeline ---------- */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 30px;
+      width: 2px;
+      height: 100%;
+      background: #444;
+    }
+    
+    .timelineItem {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    
+    .timelineDot {
+      width: 15px;
+      height: 15px;
+      background: #6366f1;
+      border-radius: 50%;
+      position: absolute;
+      left: 22px;
+      top: 5px;
+    }
+    
+    .timelineContent {
+      background: #1c1c1c;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+      margin-left: 60px;
+      text-align: left;
+      transition: transform 0.3s;
+      width: 650px;            /* ❗ desktop only; mobile overrides below */
+    }
+    
+    .timelineContent:hover {
+      transform: translateY(-5px);
+    }
+    
+    /* ---------- Skills ---------- */
+    .skillsContainer {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .column {
+      flex: 1 1 400px;
+    }
+    
+    .sectionHeading {
+      color: #6366f1;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .columnTitle {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .skill {
+      margin-bottom: 1.5rem;
+    }
+    
+    .skillLabel {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .skillBar {
+      background: #333;
+      height: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .skillBarFill {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      width: 0;
+      transition: width 2s ease;
+    }
+    
+    /* ======== Responsive ======== */
+    @media (max-width: 992px) {
+      .resumeContainer { padding: 2rem; }
+      .mainHeading { font-size: 2.1rem; }
+      .tabs { gap: 1rem; }
+      .tabs button { padding: 0.8rem 1.5rem; font-size: 1rem; }
+    }
+    
+    @media (max-width: 768px) {
+      .resumeContainer {
+        padding: 1.5rem 1rem;
+        text-align: center;
+      }
+    
+      .mainHeading { font-size: 1.8rem; margin-bottom: 2rem; }
+    
+      /* tabs: keep in one row but allow scroll if needed */
+      .tabs {
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tabs button {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        border-radius: 12px;
+      }
+    
+      /* timeline: tighten and make cards full-width */
+      .timeline::before { left: 18px; }
+      .timelineDot { left: 11px; width: 10px; height: 10px; top: 6px; }
+    
+      .timelineContent {
+        margin-left: 42px;
+        width: auto;                 /* 👈 fill available width on mobile */
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .tabs { gap: 0.5rem; }
+      .tabs button { padding: 0.5rem 0.7rem; font-size: 0.9rem; }
+      .timelineContent { margin-left: 36px; }
+    }
     

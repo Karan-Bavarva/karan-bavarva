@@ -1,11 +1,8 @@
 .aboutSection {
-  padding: 1.5rem 1rem;        /* top/bottom + side padding */
-  max-width: 900px;            /* narrower so content sits centered */
-  margin: 0 auto;              /* center the block */
-  box-sizing: border-box;      /* avoids horizontal scrollbar */
-  color: #e6e6e6;              /* NEW: default text color for dark bg */
-
-  min-height: 70vh; /* 👈 ensures page fills space before footer */
+  padding: 1rem 1rem;        /* top/bottom + safe side padding */
+  max-width: 900px;          /* narrower so content sits centered */
+  margin: 0 auto;            /* center the block */
+  box-sizing: border-box;    /* avoids horizontal scrollbar */
 }
 
 .aboutTitle {
@@ -21,7 +18,6 @@
   line-height: 1.8;
   margin-bottom: 1.5rem;
   text-align: justify;
-  color: #e0e0e0;              /* NEW: ensure readability */
 }
 
 .subTitle {
