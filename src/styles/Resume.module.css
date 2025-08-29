@@ -161,6 +161,7 @@
       padding: 2rem 4rem;
       color: #fff;
       text-align: center;
+      box-sizing: border-box;   /* ensure sizing is predictable */
     }
     
     .smallHeading { color: #6366f1; margin-bottom: 1rem; letter-spacing: 1px; }
@@ -185,8 +186,16 @@
       font-weight: 500;
       transition: all .4s ease;
     }
-    .tabs button:hover { background: rgba(99,102,241,.15); color: #6366f1; box-shadow: inset 0 0 10px rgba(99,102,241,.4), 0 8px 20px rgba(0,0,0,.6); }
-    .tabs button.active { background: rgba(99,102,241,.25); color: #6366f1; box-shadow: inset 0 0 10px rgba(99,102,241,.6), 0 8px 25px rgba(0,0,0,.7); }
+    .tabs button:hover {
+      background: rgba(99,102,241,.15);
+      color: #6366f1;
+      box-shadow: inset 0 0 10px rgba(99,102,241,.4), 0 8px 20px rgba(0,0,0,.6);
+    }
+    .tabs button.active {
+      background: rgba(99,102,241,.25);
+      color: #6366f1;
+      box-shadow: inset 0 0 10px rgba(99,102,241,.6), 0 8px 25px rgba(0,0,0,.7);
+    }
     
     /* Timeline */
     .timeline { position: relative; max-width: 800px; margin: 0 auto; }
@@ -194,9 +203,13 @@
     .timelineItem { display:flex; align-items:flex-start; margin-bottom: 2.5rem; position:relative; }
     .timelineDot { width:15px; height:15px; background:#6366f1; border-radius:50%; position:absolute; left:22px; top:5px; }
     .timelineContent {
-      background:#1c1c1c; padding:1.5rem; border-radius:12px;
+      background:#1c1c1c;
+      padding:1.5rem;
+      border-radius:12px;
       box-shadow:0 6px 25px rgba(0,0,0,.6);
-      margin-left:60px; text-align:left; transition:transform .3s;
+      margin-left:60px;
+      text-align:left;
+      transition:transform .3s;
       width:650px; /* desktop */
     }
     .timelineContent:hover { transform: translateY(-5px); }
@@ -220,35 +233,45 @@
     }
     
     @media (max-width: 768px) {
-      .resumeContainer { padding: 1.5rem 1rem; text-align: center; }
+      .resumeContainer {
+        padding: 1.5rem 12px;     /* tighter sides */
+        text-align: center;
+      }
       .mainHeading { font-size: 1.8rem; margin-bottom: 2rem; }
     
-      /* keep tabs in ONE row, allow swipe-scroll on Android */
+      /* ✅ Fix: Tabs not cut off */
       .tabs {
         gap: .75rem;
-        margin-bottom: 2rem;
-        flex-wrap: nowrap;            /* 👈 no wrap */
-        overflow-x: auto;             /* 👈 scroll if needed */
+        margin: 0 -12px;          /* allow tabs to touch screen edges */
+        padding: 0 12px;          /* breathing room inside */
+        flex-wrap: nowrap;        /* single row */
+        overflow-x: auto;         /* horizontal scroll if needed */
         -webkit-overflow-scrolling: touch;
-        padding-bottom: .25rem;
+        scrollbar-gutter: stable both-edges;
+        white-space: nowrap;
       }
       .tabs button {
         padding: .55rem .9rem;
         font-size: .95rem;
         white-space: nowrap;
+        flex: 0 0 auto;           /* don’t shrink */
+        min-width: max-content;   /* text stays intact */
         border-radius: 12px;
-        flex: 0 0 auto;               /* 👈 don’t shrink */
       }
     
-      /* timeline tighter and full width */
+      /* tighter timeline */
       .timeline::before { left: 18px; }
       .timelineDot { left: 11px; width: 10px; height: 10px; top: 6px; }
-      .timelineContent { margin-left: 42px; width: auto; }
+      .timelineContent { margin-left: 42px; width: auto; max-width: 100%; }
     }
+    
+    /* Hide scrollbar for cleaner look */
+    .tabs::-webkit-scrollbar { display: none; }
+    .tabs { -ms-overflow-style: none; scrollbar-width: none; }
     
     @media (max-width: 400px) {
       .tabs { gap: .5rem; }
       .tabs button { padding: .5rem .7rem; font-size: .9rem; }
       .timelineContent { margin-left: 36px; }
     }
-    
+     
