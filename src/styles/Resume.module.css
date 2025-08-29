@@ -151,17 +151,12 @@
 
 
 
-
-
-
-
-
      .resumeContainer {
       background: #151515;
-      padding: 2rem 4rem;
+      padding: 2rem 2rem;
       color: #fff;
       text-align: center;
-      box-sizing: border-box;   /* ensure sizing is predictable */
+      box-sizing: border-box;
     }
     
     .smallHeading { color: #6366f1; margin-bottom: 1rem; letter-spacing: 1px; }
@@ -234,28 +229,35 @@
     
     @media (max-width: 768px) {
       .resumeContainer {
-        padding: 1.5rem 12px;     /* tighter sides */
+        padding: 1.5rem 12px;
         text-align: center;
       }
       .mainHeading { font-size: 1.8rem; margin-bottom: 2rem; }
     
-      /* ✅ Fix: Tabs not cut off */
+      /* ✅ Tabs: side padding + bottom gap so timeline doesn't touch */
       .tabs {
+        box-sizing: border-box;
+        justify-content: flex-start;
         gap: .75rem;
-        margin: 0 -12px;          /* allow tabs to touch screen edges */
-        padding: 0 12px;          /* breathing room inside */
-        flex-wrap: nowrap;        /* single row */
-        overflow-x: auto;         /* horizontal scroll if needed */
+        margin: 0 0 18px;                           /* <-- bottom space added */
+        padding-inline: clamp(18px, 5vw, 28px);     /* side breathing room */
+        padding-block: 2px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        scrollbar-gutter: stable both-edges;
         white-space: nowrap;
+        scrollbar-gutter: stable both-edges;
+        scroll-padding-inline: clamp(18px, 5vw, 28px);
       }
+      .tabs button:first-child { margin-left: 6px; }
+      .tabs button:last-child  { margin-right: 6px; }
+    
       .tabs button {
         padding: .55rem .9rem;
         font-size: .95rem;
         white-space: nowrap;
-        flex: 0 0 auto;           /* don’t shrink */
-        min-width: max-content;   /* text stays intact */
+        flex: 0 0 auto;
+        min-width: max-content;
         border-radius: 12px;
       }
     
@@ -265,7 +267,7 @@
       .timelineContent { margin-left: 42px; width: auto; max-width: 100%; }
     }
     
-    /* Hide scrollbar for cleaner look */
+    /* Optional: hide scrollbar for cleaner look */
     .tabs::-webkit-scrollbar { display: none; }
     .tabs { -ms-overflow-style: none; scrollbar-width: none; }
     
@@ -274,4 +276,4 @@
       .tabs button { padding: .5rem .7rem; font-size: .9rem; }
       .timelineContent { margin-left: 36px; }
     }
-     
+        
