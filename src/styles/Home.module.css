@@ -46,11 +46,18 @@
   overflow-wrap: break-word;
 }
 
+/* —— UPDATED: keep both sections in a single row —— */
 .linksRow {
   display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  max-width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 2rem;
+  flex-wrap: nowrap;             /* ⛔️ no wrapping */
+}
+.linksRow > div {
+  flex: 1 1 0;                   /* equal width */
+  min-width: 0;                  /* allow shrink without overflow */
 }
 
 .linksRow h5 {
@@ -119,7 +126,25 @@
     line-height: 1.55;
     margin-bottom: 1.5rem;
   }
-  .linksRow { gap: 1.25rem; }
+
+  /* —— UPDATED mobile: stay in one line —— */
+  .linksRow {
+    flex-direction: row;         /* keep row */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;           /* still no wrap */
+  }
+  .linksRow > div {
+    flex: 1 1 0;
+    text-align: center;
+  }
+  .linksRow h5 {
+    font-size: 0.8rem;           /* smaller title */
+    margin-bottom: 0.5rem;
+    white-space: nowrap;         /* prevent breaking */
+  }
+
   .socialIcons a, .skillIcons svg { font-size: 1.6rem; padding: 0.6rem; }
   .right img { max-width: min(65vw, 240px); margin: 1.5rem auto 0; display: block; }
 }
@@ -132,24 +157,33 @@
     margin-bottom: 1.25rem;
     text-align: center;
   }
+
+  /* —— extra-tight on very small screens —— */
+  .linksRow {
+    gap: 0.5rem;
+  }
+  .linksRow h5 {
+    font-size: 0.75rem;
+  }
+
   .right img { max-width: min(70vw, 220px); margin: 1.25rem 4.7rem; }
 }
 
 /* ======= Laptop/Desktop guard to prevent horizontal scroll ======= */
 @media (min-width: 992px) {
   .hero {
-    max-width: 100vw;        /* never exceed viewport width */
-    overflow: hidden;        /* clip any accidental spill */
+    max-width: 100vw;
+    overflow: hidden;
     padding-left: clamp(24px, 3.5vw, 56px);
     padding-right: clamp(24px, 3.5vw, 56px);
     gap: 3rem;
   }
-  .hero > * { min-width: 0; } /* children can't overgrow */
+  .hero > * { min-width: 0; }
   .right { overflow: hidden; }
   .right img {
     display: block;
     height: auto;
-    max-width: min(36vw, 520px); /* big but safe */
+    max-width: min(36vw, 520px);
   }
   .bigTitle, .description, .linksRow {
     max-width: 100%;
@@ -159,9 +193,7 @@
 }
 
 /* ------- hero image responsive fix ------- */
-.right img {
-  max-width: 100%; /* override old fixed px width */
-}
+.right img { max-width: 100%; }
 
 .heroImg {
   max-width: 100%;
@@ -169,29 +201,18 @@
   object-fit: contain;
   display: block;
   width: min(320px, 18vw);
-
   margin-left: 160px;  /* 👉 desktop right shift */
 }
 
 @media (max-width: 1200px) {
-  .heroImg {
-    width: min(260px, 40vw);
-  }
+  .heroImg { width: min(260px, 40vw); }
 }
 
 /* mobile  right align */
 @media (max-width: 768px) {
-  .right {
-    justify-content: flex-end;  /* 👈 image bilkul right side */
-  }
-
-  .heroImg {
-    width: min(200px, 60vw);
-    margin: 0; /* reset margins */
-  }
+  .right { justify-content: flex-end; }
+  .heroImg { width: min(200px, 60vw); margin: 0; }
 }
 
 /* guard against accidental horizontal overflow */
-:global(html), :global(body) {
-  overflow-x: hidden;
-}
+:global(html), :global(body) { overflow-x: hidden; }
